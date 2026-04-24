@@ -114,7 +114,7 @@
         const resources = [
           { title: "Paper", icon: icons.paper, href: "https://arxiv.org/abs/2602.07303" },
           { title: "Demo", icon: icons.demo, href: "#demo" },
-          { title: "Slides", icon: icons.slides, href: "#" },
+          { title: "Slides", icon: icons.slides, href: "KRONE_ICDE_Presentation_pdf.pdf" },
           { title: "Video", icon: icons.video, href: "#video" },
           { title: "Code", icon: icons.code, href: "https://github.com/LeiMa0324/Krone_official/tree/main?tab=readme-ov-file" },
           { title: "X", icon: icons.x, href: "https://x.com/" },
@@ -269,7 +269,7 @@
                 </p>
                 <div className="mt-4 flex flex-wrap justify-center gap-3">
                   {resources.map((item) => {
-                    const isExternal = item.href.startsWith("http");
+                    const isExternal = item.href.startsWith("http") || item.href.endsWith(".pdf");
                     return (
                       <a
                         key={item.title}
