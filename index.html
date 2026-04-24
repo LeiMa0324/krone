@@ -188,27 +188,35 @@
                   KRONE: Hierarchical and Modular Log Anomaly Detection
                 </h1>
                 <p className="mt-6 max-w-4xl text-base leading-7 text-neutral-800 md:text-lg">
-                  <a href="https://github.com/LeiMa0324" className="underline hover:text-black">Lei Ma</a><sup>∗</sup>, <a href="#" className="underline hover:text-black">Jinyang Liu</a><sup>†</sup>, <a href="#" className="underline hover:text-black">Tieying Zhang</a><sup>†</sup>, <a href="#" className="underline hover:text-black">Peter M. VanNostrand</a><sup>∗</sup>, <a href="#" className="underline hover:text-black">Dennis M. Hofmann</a><sup>∗</sup>, <a href="#" className="underline hover:text-black">Lei Cao</a><sup>‡</sup>, <a href="#" className="underline hover:text-black">Elke A. Rundensteiner</a><sup>∗</sup>, <a href="#" className="underline hover:text-black">Jianjun Chen</a><sup>†</sup>
+                  <a href="https://leima0324.github.io/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Lei Ma</a><sup>∗</sup>, <a href="https://jinyang88.github.io/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Jinyang Liu</a><sup>†</sup>, <a href="https://tieyingzhang.github.io/home/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Tieying Zhang</a><sup>†</sup>, <a href="https://petervannostrand.github.io/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Peter M. VanNostrand</a><sup>∗</sup>, <a href="https://www.planethofmann.com/dennis/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Dennis M. Hofmann</a><sup>∗</sup>, <a href="https://www2.cs.arizona.edu/~caolei/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Lei Cao</a><sup>‡</sup>, <a href="https://www.wpi.edu/people/faculty/rundenst" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Elke A. Rundensteiner</a><sup>∗</sup>, <a href="https://www.linkedin.com/in/jianjun-chen/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">Jianjun Chen</a><sup>†</sup>
                 </p>
                 <p className="mt-3 max-w-4xl text-sm leading-6 text-neutral-600">
                   <sup>∗</sup>Worcester Polytechnic Institute, Worcester, USA &nbsp;·&nbsp;
                   <sup>†</sup>ByteDance Inc., San Jose, USA &nbsp;·&nbsp;
                   <sup>‡</sup>University of Arizona, Tucson, USA
                 </p>
-                <p className="mt-6 max-w-3xl text-base leading-8 text-neutral-700 md:text-lg">
+                <div className="mt-8 w-full max-w-md overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-50 p-3 shadow-sm">
+                  <img src="teaser.png" alt="KRONE teaser" className="w-full" />
+                </div>
+                <p className="mt-4 max-w-3xl text-base leading-8 text-neutral-700 md:text-lg">
                   KRONE revisits flat log analysis through a hierarchical lens. It reconstructs execution semantics directly from logs, decomposes traces into reusable execution units, and enables scalable, interpretable anomaly detection with selective LLM reasoning.
                 </p>
-                <div className="mt-8 flex flex-wrap justify-center gap-3">
-                  {resources.map((item) => (
-                    <a
-                      key={item.title}
-                      href={item.href}
-                      className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90"
-                    >
-                      {item.icon}
-                      {item.title}
-                    </a>
-                  ))}
+                <div className="mt-4 flex flex-wrap justify-center gap-3">
+                  {resources.map((item) => {
+                    const isExternal = item.href.startsWith("http");
+                    return (
+                      <a
+                        key={item.title}
+                        href={item.href}
+                        target={isExternal ? "_blank" : undefined}
+                        rel={isExternal ? "noopener noreferrer" : undefined}
+                        className="inline-flex items-center gap-2 rounded-full bg-black px-5 py-3 text-sm font-medium text-white shadow-sm transition hover:opacity-90"
+                      >
+                        {item.icon}
+                        {item.title}
+                      </a>
+                    );
+                  })}
                 </div>
                 <div className="mt-10 w-full max-w-full overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 shadow-sm">
                   <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -241,7 +249,7 @@
                 <div className="mb-8 text-center">
                   <p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Video</p>
                   <h2 className="mt-3 text-3xl font-semibold tracking-tight md:text-4xl">
-                    <a href="https://leima0324.github.io/KRONE_Demo_official/" className="underline hover:text-black">
+                    <a href="https://leima0324.github.io/KRONE_Demo_official/" target="_blank" rel="noopener noreferrer" className="underline hover:text-black">
                       Watch the KRONE Demonstration and try it out.
                     </a>
                   </h2>
@@ -250,7 +258,7 @@
                   <div className="aspect-video w-full">
                     <iframe
                       className="h-full w-full"
-                      src="https://www.youtube.com/embed/3Olyzq-noX8"
+                      src="https://www.youtube.com/embed/L_QpMUqXJuY"
                       title="KRONE Project Video"
                       frameBorder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -316,32 +324,29 @@
                   </h2>
                 </div>
 
-                <div className="mx-auto mb-10 grid w-full max-w-5xl items-start gap-6 md:grid-cols-2">
+                <div className="mx-auto grid w-full max-w-6xl items-start gap-10 md:grid-cols-2">
                   <figure className="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 p-4 shadow-sm">
                     <img src="demo_arch.png" alt="KRONE architecture" className="w-full" />
                   </figure>
-                  <figure className="overflow-hidden rounded-3xl border border-neutral-200 bg-neutral-50 p-4 shadow-sm">
-                    <img src="teaser.png" alt="KRONE hierarchy" className="w-full" />
-                  </figure>
-                </div>
 
-                <div className="mx-auto max-w-3xl space-y-5 text-[15px] leading-7 text-neutral-700">
-                  <p>
-                    Logs originate from nested component executions with clear structural boundaries, but this organization is lost when stored as flat sequences. <strong>KRONE is the first hierarchical anomaly detection framework</strong> that automatically derives execution hierarchies from flat logs and performs modular multi-level detection.
-                  </p>
-                  <p>
-                    At its core, the <em>KRONE Log Abstraction Model</em> recursively decomposes log sequences into coherent execution chunks (<em>KRONE Seqs</em>), turning sequence-level detection into a set of modular KRONE Seq-level tasks. A hybrid detection mechanism routes between a fast local-context detector and a nested-aware detector augmented with LLM reasoning, further accelerated by cached result reuse and early-exit optimization.
-                  </p>
+                  <div className="space-y-5 text-[15px] leading-7 text-neutral-700">
+                    <p>
+                      Logs originate from nested component executions with clear structural boundaries, but this organization is lost when stored as flat sequences. <strong>KRONE is the first hierarchical anomaly detection framework</strong> that automatically derives execution hierarchies from flat logs and performs modular multi-level detection.
+                    </p>
+                    <p>
+                      At its core, the <em>KRONE Log Abstraction Model</em> recursively decomposes log sequences into coherent execution chunks (<em>KRONE Seqs</em>), turning sequence-level detection into a set of modular KRONE Seq-level tasks. A hybrid detection mechanism routes between a fast local-context detector and a nested-aware detector augmented with LLM reasoning, further accelerated by cached result reuse and early-exit optimization.
+                    </p>
 
-                  <div className="rounded-2xl bg-neutral-900 px-6 py-4 text-center font-mono text-sm tracking-wide text-neutral-100">
-                    ROOT → ENTITY → ACTION → STATUS
+                    <div className="rounded-2xl bg-neutral-900 px-6 py-4 text-center font-mono text-sm tracking-wide text-neutral-100">
+                      ROOT → ENTITY → ACTION → STATUS
+                    </div>
+
+                    <ul className="space-y-2 text-[15px] leading-7">
+                      <li><strong>Entity:</strong> system modules or components (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">PacketResponder</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">block</code>)</li>
+                      <li><strong>Action:</strong> operations performed (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">creating</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">receiving</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">terminating</code>)</li>
+                      <li><strong>Status:</strong> outcomes (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">success</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">failure</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">exception</code>)</li>
+                    </ul>
                   </div>
-
-                  <ul className="space-y-2 text-[15px] leading-7">
-                    <li><strong>Entity:</strong> system modules or components (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">PacketResponder</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">block</code>)</li>
-                    <li><strong>Action:</strong> operations performed (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">creating</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">receiving</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">terminating</code>)</li>
-                    <li><strong>Status:</strong> outcomes (e.g., <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">success</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">failure</code>, <code className="rounded bg-neutral-100 px-1.5 py-0.5 font-mono text-xs">exception</code>)</li>
-                  </ul>
                 </div>
               </section>
 
@@ -366,6 +371,8 @@
                   <a
                     href="https://arxiv.org/pdf/2602.07303.pdf"
                     aria-label="Paper PDF"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-neutral-300 transition hover:text-white"
                   >
                     <svg
@@ -386,6 +393,8 @@
                   <a
                     href="https://github.com/LeiMa0324/Krone_official"
                     aria-label="GitHub"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="text-neutral-300 transition hover:text-white"
                   >
                     <svg className="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
@@ -399,6 +408,8 @@
                   <a
                     href="https://clustrmaps.com/site/REPLACE_WITH_YOUR_ID"
                     title="Visit tracker"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-block"
                   >
                     <img
@@ -414,6 +425,8 @@
                     This website is licensed under a{" "}
                     <a
                       href="http://creativecommons.org/licenses/by-sa/4.0/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-400 hover:underline"
                     >
                       Creative Commons Attribution-ShareAlike 4.0 International License
@@ -424,6 +437,8 @@
                     This means you are free to borrow the{" "}
                     <a
                       href="https://github.com/nerfies/nerfies.github.io"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-400 hover:underline"
                     >
                       source code
